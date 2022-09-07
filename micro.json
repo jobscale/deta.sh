@@ -1,0 +1,10 @@
+{
+  "name": "hello-world",
+  "id": "db12f17b-3b01-471d-82e2-ddc46a282499",
+  "project": "c0gkny00",
+  "runtime": "nodejs14.x",
+  "endpoint": "https://us70fa.deta.dev",
+  "region": "ap-southeast-1",
+  "visor": "disabled",
+  "http_auth": "disabled"
+}
