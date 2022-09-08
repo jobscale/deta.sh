@@ -5,7 +5,8 @@ const db = deta.Base(`${process.env.NODE_ENV}-user`);
 
 class UserService {
   users() {
-    return db.fetch({ active: true });
+    return db.fetch({ active: true })
+    .then(({ items }) => items);
   }
 
   findById(rest) {

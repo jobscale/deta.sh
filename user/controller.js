@@ -8,11 +8,7 @@ class UserController {
   users(req, res) {
     userService.users()
     .then(users => {
-      if (!users.length) {
-        res.status(404).json({ message: 'Not Found' });
-        return;
-      }
-      res.json(users);
+      res.json({ users });
     })
     .catch(e => res.status(500).json({ message: e.message }));
   }
@@ -50,7 +46,7 @@ class UserController {
       res.status(400).json({ message: 'Bad Request' });
       return;
     }
-  
+
     userService.register({ name, age, hometown })
     .then(user => res.json(user))
     .catch(e => res.status(500).json({ message: e.message }));
@@ -70,7 +66,7 @@ class UserController {
     }
 
     userService.update({ key: id, name, age, hometown })
-    .then(user => res.json(user))
+    .then(() => res.json({ message: 'updated' }))
     .catch(e => res.status(500).json({ message: e.message }));
   }
 
