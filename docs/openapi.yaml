@@ -1,0 +1,315 @@
+openapi: 3.0.1
+info:
+  title: Deta.Jsx.Jp 3.0.1
+  description: 'Description OpenAPI 3.0.1'
+  termsOfService: https://jsx.jp
+  contact:
+    name: jobscale
+    email: jobscale@users.noreply.github.com
+  license:
+    name: MIT License
+    url: https://choosealicense.com/licenses/mit/
+  version: 0.0.2
+externalDocs:
+  description: Find out more about Swagger
+  url: https://us70fa.deta.dev
+servers:
+- url: https://us70fa.deta.dev/v1
+- url: https://deta.jsx.jp/v1
+components:
+  securitySchemes:
+    bearerAuth:
+      description: 'Authorization: <type> <credentials>
+        See RFC 6750, bearer tokens to access OAuth 2.0-protected resources
+        https://datatracker.ietf.org/doc/html/rfc6750'
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+tags:
+- name: user
+  description: Operations about user
+  externalDocs:
+    description: Docs
+    url: http://swagger.io
+paths:
+  /user:
+    get:
+      tags:
+      - user
+      summary: user
+      description: request user
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+  /user/list:
+    get:
+      tags:
+      - user
+      summary: user
+      description: request user
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+  /user/register:
+    post:
+      tags:
+      - user
+      summary: user
+      description: request user
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        required: true
+        description: request body
+        content:
+          application/json:
+            schema:
+              required:
+              - name
+              - age
+              - hometown
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: doggie
+                age:
+                  type: integer
+                  format: number
+                  example: 44
+                hometown:
+                  type: string
+                  example: Osaka City
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+  /user/findByAge:
+    post:
+      tags:
+      - user
+      summary: user
+      description: request user
+      requestBody:
+        required: true
+        description: request body
+        content:
+          application/json:
+            schema:
+              required:
+              - age
+              type: object
+              properties:
+                age:
+                  type: integer
+                  format: number
+                  example: 44
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+  /user/findByName:
+    post:
+      tags:
+      - user
+      summary: user
+      description: request user
+      requestBody:
+        required: true
+        description: request body
+        content:
+          application/json:
+            schema:
+              required:
+              - name
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: doggie
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+  /user/{key}:
+    get:
+      tags:
+      - user
+      summary: user
+      description: request user
+      parameters:
+      - name: key
+        in: path
+        description: user key
+        required: true
+        schema:
+          type: string
+          format: string
+          example: jo7x1r8hoveg
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+      - user
+      summary: user
+      description: request user
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: key
+        in: path
+        description: user key
+        required: true
+        schema:
+          type: string
+          format: string
+          example: jo7x1r8hoveg
+      requestBody:
+        required: true
+        description: request body
+        content:
+          application/json:
+            schema:
+              required:
+              - name
+              - age
+              - hometown
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: doggie
+                age:
+                  type: integer
+                  format: number
+                  example: 44
+                hometown:
+                  type: string
+                  example: Osaka City
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      tags:
+      - user
+      summary: user
+      description: request user
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: key
+        in: path
+        description: user key
+        required: true
+        schema:
+          type: string
+          format: string
+          example: jo7x1r8hoveg
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object

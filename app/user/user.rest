@@ -1,0 +1,44 @@
+###
+GET https://us70fa.deta.dev
+###
+GET https://us70fa.deta.dev/v1
+###
+GET https://us70fa.deta.dev/v1/user
+###
+GET https://us70fa.deta.dev/v1/user/list
+###
+POST https://us70fa.deta.dev/v1/user/register
+Content-Type: application/json
+
+{
+  "name": "Beverly",
+  "age": 44,
+  "hometown": "Osaka City"
+}
+###
+GET https://us70fa.deta.dev/v1/user/87iox4w15ew8
+###
+POST https://us70fa.deta.dev/v1/user/findByAge
+Content-Type: application/json
+
+{
+  "age": 44
+}
+###
+POST https://us70fa.deta.dev/v1/user/findByName
+Content-Type: application/json
+
+{
+  "name":"Beverly"
+}
+###
+PUT https://us70fa.deta.dev/v1/user/87iox4w15ew8
+Content-Type: application/json
+
+{
+  "name": "Beverly",
+  "age": 44,
+  "hometown": "Osaka City"
+}
+###
+DELETE https://us70fa.deta.dev/v1/user/87iox4w15ew8
